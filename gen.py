@@ -36,7 +36,7 @@ for i in keys:
         if surname == 'jpeg':
             surname = 'jpg'
         url = "img/%s.%s" % (result[0], surname)
-        tinyurl = "_img/%s.%s" % (result[0], surname)
+        tinyurl = "img/t%s.%s" % (result[0], surname)
         fh = open(url, 'wb')
         fh.write(decodestring(a[1]))
         fh.close()
