@@ -1,0 +1,123 @@
+@import url('//fonts.googleapis.com/css?family=Droid+Sans+Mono:300,400,700');
+h1, h2, h3, h4 {
+    font-family: 'Droid Sans Mono', sans-serif;
+    font-weight: 300;
+}
+p {
+    font-family: 'Droid Sans Mono', sans-serif;
+}
+
+html {
+    background-color: #474747;
+    height: 100%;
+}
+.top {
+    background-color: #474747;
+}
+
+.top .container {
+    padding: 0;
+}
+.banner {
+    background-color: #373737;
+}
+.banner .container {
+    background-color: #bbbbab;
+    padding: 3% 3% 3% 3%;
+    min-height: 15vh;
+}
+.banner .container p {
+    font-size: 22px;
+    padding-left: 5px;
+    font-weight: 300;
+}
+.middle {
+    background-color: #CCC;
+}
+.middle .container {
+    background-color: #FFF;
+    padding: 5% 5% 5% 5%;
+    min-height: 20vh;
+}
+.middle .container textarea {
+    height: 40vh;
+    font-family: "Droid Sans Mono", "細明體", "AR PL UMing TW", "Inconsolata", monospace;
+}
+.win {
+    display: none;
+    float: left;
+    background: #FEFEFE;
+    border: 2px solid #FAFAFA;
+    border-radius: 10px 0px 10px 10px;
+    z-index: 100;
+    position: absolute;
+    min-width: 60vw;
+    min-height: 60vh;
+}
+.bottom {
+    background-color: #474747;
+}
+.bottom .container {
+    background-color: #373737;
+    padding: 3% 3% 3% 3%;
+    min-height: 15vh
+}
+.bottom .container h3 {
+    color: #999;
+}
+.bottom .container p {
+    color: #777;
+}
+.content p {
+    line-height: 30px;
+    font-size: 16px;
+    text-align: center;
+}
+.btn-self {
+    background-color: #474747;
+    background-image: -moz-linear-gradient(#474747, #262626);
+    background-image: linear-gradient(#474747, #262626);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1);
+    color: #FFF;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.25);
+    margin-top: 10px;
+    position: relative;
+    right: 0;
+}
+.btn-self:hover {
+    background-color: #373737;
+    background-image: -moz-linear-gradient(#373737, #262626);
+    background-image: linear-gradient(#474747, #262626);
+    color: #FFF;
+}
+.btn-self:active {
+    color: #CCC;
+}
+.btn-self:focus {
+    color: #CCC;
+}
+.btn-self:disabled {
+    background-color: #777777;
+    background-image: -moz-linear-gradient(#777777, #666666);
+    background-image: linear-gradient(#474747, #262626);
+}
+.message_ok, .message_fail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50px;
+    width: 300px;
+    margin-top: -25px;
+    margin-left: -150px;
+    text-align: center;
+    display: none;
+    z-index: 5;
+}
+.message_fail p, .message_ok p {
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.46);
+    background: #AAA;
+}
