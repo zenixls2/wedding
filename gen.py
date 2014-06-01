@@ -1,6 +1,7 @@
 #!/usr/bin/python2
 # -*- coding: utf-8 -*-
 import redis
+from PIL import Image
 from base64 import decodestring
 pool = redis.ConnectionPool(host='localhost', port=6379)
 r = redis.Redis(connection_pool = pool)
@@ -29,6 +30,7 @@ for i in keys:
     result = r.hmget(i, ['id', 'name', 'msg', 'img'])
     a = result[3].split(';base64,') 
     url = 'https://graph.facebook.com/%s/picture?type=large' % result[0]
+    tinyurl = url
     if len(a) == 2:
         surname = a[0].split('/')[-1]
         if surname == 'jpeg':
@@ -37,6 +39,13 @@ for i in keys:
         fh = open(url, 'wb')
         fh.write(decodestring(a[1]))
         fh.close()
+        tinyurl = "_img/%s.%s" % (result[0], surname)
+        fh = open(url, 'wb')
+        fh.write(decodestring(a[1]))
+        fh.close()
+        tiny = Image.open(url)
+        tiny.thumbnail((412, 412), Image.NEAREST)
+        tiny.save(tinyurl)
     print('<div id="%s" class="pin" onclick="(function() {' % result[0]+
             'w = document.createElement(\'div\');' +
             'w.className = \'present\';' +
@@ -52,7 +61,7 @@ for i in keys:
             'function() {$(\'#overlay\').fadeOut(\'fase\');});});' +
             '}())">')
     print('<label>%s</label>' % result[1]) 
-    print('<img src="%s">' % url)
+    print('<img src="%s">' % tinyurl)
     msg = ""
     if len(result[2]) > threshold:
         msg = "..."
